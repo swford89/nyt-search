@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>NYT Article Search Results</title>
+    <div th:replace="fragments :: header" />
+</head>
+<body>
+<div th:replace="fragments :: navigation" />
+<div class="container">
+    <div class="bg-light p-4 rounded m-2">
+        <div th:replace="fragments :: search"/>
+        </br>
+        <th:block th:unless="${searchResults.isEmpty()}">
+            <div class="row" th:each="article : ${searchResults}" style="padding: 1rem">
+                <div class="card" style="padding: 1rem; width: 80rem; height: 20rem">
+                    <div class="row g-0">
+                        <div class="col-4">
+<!--                            <img class="image-fluid" th:src="@{${article.imageUrl}}" style="height:250px; width: 350px; object-fit: cover"/>-->
+                            <img class="image-fluid" th:src="@{${article.imageUrl}}" style="height:17.5rem; width: 25rem;" />
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${article.headline.main}">title</h5>
+                                <p class="card-text text-muted" th:text="${article.pubDate}">publication date</p>
+                                </br>
+                                <p class="card-text" th:text="${article.summary}">summary</p>
+                                </br>
+                                <a class="card-link" th:href="${article.webUrl}">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                </br>
+            </div>
+        </th:block>
+        </br>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>NYT Article Search</title>
+    <div th:replace="fragments :: header"/>
+</head>
+<body>
+<div th:replace="fragments :: navigation"/>
+<div class="container">
+    <div class="bg-light p-4 rounded m-2">
+        <div class="row">
+            <div class="col align-self-center">
+                <div th:replace="fragments :: search"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments :: footer"/>
+</body>
+</html>
